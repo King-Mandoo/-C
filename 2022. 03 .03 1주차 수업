@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+int main(void)
+{
+	printf("hello, world!\n");
+
+	// shift + ctrl + B    <-- 빌드 단축기
+	// ctrl + F5           <-- 시작 단축기
+
+	return 0;
+}
+
+// 코딩용 폰트  (나는 지금 이걸로 변경함 >> cosolas)
+// 모노스페이스 폰트 (monospace font)

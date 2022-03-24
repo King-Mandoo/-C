@@ -1,3 +1,5 @@
+2022.03.10 수업
+
 #include <stdio.h>  //standard input ouput
 
 int main()                                         --> int main() 과 int main(void)와 같다는 것을 이제 알았다.                      ❓❓ >> void 뜻: 빈, 없는

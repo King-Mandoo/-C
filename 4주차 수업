@@ -319,7 +319,7 @@ int main()
 
 int main()
 {
-	char line[10]=" ";
+	char line[10]=" ";       < ---  Q.    char line[10]=" "; 와  char line[10]; 의 값이 왜 다르게 나올까? 후자에서는 뒤에 쓰레기 값이 붙어서 나온다. 그 이유가 뭘까?
 
 	printf("문자열을 입력 ==> ");                          ✅ 틀린 이유
 	scanf("%s", line);                                     1. %c와 %s를 구분하지 못했다.    

@@ -1,0 +1,137 @@
+# 산술연산자
+# ---------------#
+# 더하기 +
+# 빼기 -
+# 곱하기 *
+# 나누기 /
+# 몫 //
+# 나머지 %
+# 제곱 **
+
+
+print(1 + 2)
+print(5 - 3)
+print(7 * 10)
+print(10 / 3)    # 3.3333333333333335으로 출력 / 실수형 자료
+print(10 // 3)   # 3으로 출력
+print(10 % 3)    # 1로 출력
+print(2**10)     # 1024로 출력
+print(10 / 2)    # 5.0으로 출력 --> 이걸 보면 나누기(/)는 실수형 자료로 표현되는 듯하다.
+
+
+print(3.84 + 43)  
+print(3.5 - 3)
+print(3.5 * 2)
+print(3.6 / 2)
+
+print(-35 * -2)
+print(-10 / -2)
+
+print(3**7)
+print(3 ** 3 ** 3)  # 이건 3의 27제곱을 나타낸다..
+print((3 ** 3) ** 3) # 이렇게 해야 27의 3제곱이 된다.
+print(27 ** 3)
+
+
+##--------------------------------------##
+
+# 비교 연산자
+
+print(5 > 3)  # True로 출력
+print(5 < 3)  # Flase로 출력
+print(3 <= 3)  # True로 출력
+print(3 >= 3)  # True로 출력
+print(2 == 2)  # True로 출력
+print(5 != 5)  # Flase로 출력
+
+# 논리 연산자
+
+print(1 and 1)
+print(0 and 1)
+print(0 and 0)
+
+print(0 or 1)
+print(1 or 1)
+print(3535 or 234) # 이러면 1이 아니라 앞에 있는 3535가 출력된다.
+print(-34 or 34)  # 마찬가지로 앞에 있는 -34가 출력된다.
+ 
+print(True and True)                   # True는 1, False는 0
+print(True and False)
+print(False and False)
+
+print(True or True)
+print(True or False)
+
+
+##--------------------------------------##
+
+# 문자열 연산
+
+p = "문자열"
+o = "연산"
+print(p + o)  # 문자열연산 으로 출력
+
+j = "곱등이"
+print(j * 10)  # 곱등이곱등이곱등이곱등이곱등이곱등이곱등이곱등이곱등이곱등이 로 출력
+
+m = input()
+print(m * 10)
+
+##---------------------------------------------문제 풀이-------------------------------------------------------------------
+
+# 1번.
+
+num1 = int(input("덧셈 첫 번째 숫자는?  "))
+num2 = int(input("덧셈 두 번째 숫자는?  "))
+print("두 숫자의 합은", num1 + num2, "입니다.")
+
+
+big = int(input("피제수는? "))
+small = int(input("제수는? "))
+print("나눗셈의 몫은", big//small, "나머지는", big%small, "입니다.")
+
+# 2번.
+
+name = input("이름을 입력하세요: ")
+sub1 = int(input("국어 성적을 입력하세요: "))
+sub2 = int(input("수학 성적을 입력하세요: "))
+sub3 = int(input("사회 성적을 입력하세요: "))
+sub4 = int(input("과학 성적을 입력하세요: "))
+sub5 = int(input("영어 성적을 입력하세요: "))
+print(name,"의 성적은")
+print("총합", sub1 + sub2 + sub3 + sub4 + sub5, "점, 평균", (sub1 + sub2 + sub3 + sub4 + sub5)/5, "점입니다.")
+
+
+
+
+
+n = input("이름을 입력하세요: ")
+sum = 0
+s = float(input("국어 성적을 입력하세요: "))
+sum = s
+s = float(input("수학 성적을 입력하세요: "))
+s = s + sum
+sum = s
+s = float(input("영어 성적을 입력하세요: "))
+s = s + sum
+sum = s
+
+print(n,"의 성적은")
+print("국영수 총합: ", sum)
+print("국영수 평균: ", sum/3)
+
+# 3번.
+
+a = float(input("첫 번째 직각 변의 길이(cm) : "))
+b = float(input("두 번째 직각 변의 길이(cm) : "))
+c = a**2 + b**2
+print("빗변의 길이는", c**(1/2), "cm입니다.")
+
+r=int(input("원의 반지름을 입력하세요(cm): "))
+rod = round(r * 2 * 3.14, 2)                    # round 함수 -->  round(3.141592, 2) = 3.14   소수점 둘째 자리에서 반올림해줌.
+area = round(r ** 2 * 3.14, 2)   
+print("원의 둘레는", rod, "cm이고 원의 넓이는", area, "cm입니다.")
+
+
+
+

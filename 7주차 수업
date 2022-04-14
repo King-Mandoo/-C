@@ -1,0 +1,58 @@
+#include <stdio.h>
+
+int main(void)
+{
+	int i;
+	int hab = 0;
+
+	for (i = 3; i < 100; i = i + 3)
+	{
+		hab = hab + i; // 0+3  3+6  9+9  18+12    <-- 이 사고가 잘 안된다
+	}
+	printf("%d", hab);
+
+	return 0;
+}
+
+----------------------------------------------------------------------
+
+#include <stdio.h>
+
+int main(void)
+{
+	int dan;
+	int i;
+
+	printf("몇 단 ? ");
+	scanf("%d", &dan);
+
+	for (i = 9; i > 0; i--)
+	{
+		printf("%d X %d = %d\n", dan, i, dan * i);
+	}
+
+	return 0;
+}
+
+-------------------------------------------------------------------------
+
+🟡 중첩 for문
+
+🟢 중첩 for문의 개념
+
+                #include <stdio.h>
+
+                int main(void)
+                {
+                  int i, k;
+
+                  for (i = 2; i <= 9; i++)
+                  {
+                    for (k = 1; k <= 9; k++)
+                    {
+                      printf("%d \n", k);
+                    }
+                    printf("%d \n", i);
+                  }
+                  return 0;
+                }

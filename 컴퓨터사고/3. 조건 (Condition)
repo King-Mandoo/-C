@@ -73,6 +73,60 @@ if 2 <= baby <= 15:    # <-- 폐렴구균 2 ~ 15개월 아이
     print("폐렴구균")
 
 
+#--------------------------------------------------------------------------
+        
+# 논리 연산자
+
+
+i = 1; u = 3
+if i == 1 or u == 1:
+    print("참입니다.")
+
+    
+
+##---------------------------------------------문제 풀이-------------------------------------------------------------------
+
+
+# 1번
+
+r1 = float(input("100m 기록(초) : "))
+r2 = float(input("1000m 기록(초) : "))
+r3 = int(input("윗몸일으키기 기록(회) : "))
+r4 = int(input("좌우 악력 기록(kg) : "))
+r5 = int(input("팔굽혀펴기 기록(회) : "))
+
+if r1 <= 13.6 and r2 <= 237 and r3 >= 51 and r4 >= 56 and r5 >= 46:
+    print("합격 가능성이 매우 높습니다.")
+else:
+    print("쪼매 애매하노")
+
+
+# 2번
+
+Korean = float(input("국어 점수: "))
+English = float(input("영어 점수: "))
+History = float(input("한국사 점수: "))
+select1 = float(input("선택과목1 점수: "))
+select2 = float(input("선택과목2 점수: "))
+
+
+if Korean < 40 or English < 40 or History < 40  or select1 < 40 or select2 < 40:
+    print("과락")
+else:
+    print("과락 아님")
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

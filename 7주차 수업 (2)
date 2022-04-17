@@ -304,3 +304,134 @@ int main()
 }
 
 
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌예제 문제풀이📌
+
+
+예제 17. 맞음⭕
+
+#include <stdio.h>
+
+int main()
+{
+	int start, end, hap = 0;
+	int i, j = 0;
+
+	printf("합계의 시작값 ==> ");
+	scanf("%d", &start);
+	printf("합계의 끝값 ==> ");
+	scanf("%d", &end);
+	printf("배수 ==> ");
+	scanf("%d", &i);
+
+	while (j <= end)
+	{
+		if (j % i == 0 && j >= start)           <--- 🎈🎈문제에서는 j >= start라는 조건을 안넣고 while문 이전에 j = start;라고 했다.
+		{
+			hap = hap + j;                 
+		}
+
+		j++;
+	}
+	printf("%d부터 %d까지의 %d배수의 합계 == > %d", start, end, i, hap);
+}
+
+
+
+
+예제 18. 틀림❌     <-- 이건 어려웠다..
+
+#include <stdio.h>
+
+int main()
+{
+	char ch[101];
+	char line = "";    // char line = '\0' 이라고 하면 while문이 실행이 안된다.
+                           //  ""은 문자열이기 때문에 앞에 문장을 채울 수 있지만, ''는 널문자 하나만 이미 들어가 있기 때문에 안되는 것이다.
+			       
+			       
+	printf("문자열을 입력<100자 이내> : ");
+	scanf("%s", ch);
+
+	int big_letter = 0;
+	int small_letter = 0;
+	int number = 0;
+	int i = 0;
+
+	while (line != '\0')
+	{
+		line = ch[i];
+
+		if (line >= 'A' && line <= 'Z')
+		{
+			big_letter++;
+		}
+		else if (line >= 'a' && line <= 'z')
+		{
+			small_letter++;
+		}
+		else if (line >= '0' && line <= '9')
+		{
+			number++;
+		}
+
+		i++;
+	}
+
+	printf("대문자: %d개, 소문자: %d개, 숫자: %d개", big_letter, small_letter, number);
+
+	return 0;
+}
+
+
+🔻다른 답🔻   do ~ while문을 활용
+
+#include <stdio.h>
+
+int main()
+{
+	char ch[101];
+	char line;         <-- do ~ while문은 실행하기 전에 시작값이 필요하지 않으므로 =""을 안써줘도 된다.
+
+	printf("문자열을 입력<100자 이내> : ");
+	scanf("%s", ch);
+
+	int big_letter = 0;
+	int small_letter = 0;
+	int number = 0;
+	int i = 0;
+
+	do
+	{
+		line = ch[i];
+
+		if (line >= 'A' && line <= 'Z')
+		{
+			big_letter++;
+		}
+		else if (line >= 'a' && line <= 'z')
+		{
+			small_letter++;
+		}
+		else if (line >= '0' && line <= '9')
+		{
+			number++;
+		}
+
+		i++;
+	}
+	while (line != '\0');
+
+	printf("대문자: %d개, 소문자: %d개, 숫자: %d개", big_letter, small_letter, number);
+
+	return 0;
+}
+
+
+
+
+
+예제 19. 틀림❌   <-- 이건 진짜 터무니 없어서 못풀겠는데??????????????????????????????   내일 다시 풀어봐야지 2022. 04. 17

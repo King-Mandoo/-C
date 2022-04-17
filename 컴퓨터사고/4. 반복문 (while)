@@ -18,3 +18,42 @@ i = 1
 while  i < 100:
     print(i)
     i = i + 2
+
+# 2번   ❌❌❌ 틀림 오답임    <-- 왜 틀렸는지 생각해보기   ( 0 1 2 3 을 순서대로 30번째 까지 출력하는 프로그램)
+
+i = 0
+while i + 1 <= 30:
+    i = i + 1
+    print("1")
+    i = i + 1
+    print("2")
+    i = i + 1
+    print("3")
+    i = i + 1
+    print("0")
+
+    # 0+1 1+1 2+1 3+1 4+1 5+1 6+1 7+1 ... 29+1  30+1
+    
+     
+# 2번  ⭕⭕⭕⭕ 이게 정답..
+
+i = 1
+while i <= 30:
+
+    print(i % 4)
+    i = i + 1
+
+
+
+# 3번
+
+num = 0
+while num !=50:
+    num = int(input("숫자: "))
+    if num < 50:
+        print("UP")
+    elif num > 50:
+        print("DOWN")
+    else:
+        print("정답")
+        

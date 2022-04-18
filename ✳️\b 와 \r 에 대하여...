@@ -188,7 +188,7 @@ int main(void)
 
 
 
-
+printf("ABC\b\bDEF");    -->  'ADEF'로 출력  // 커서의 위치가 'B'위에 있으므로 B위에서 DEF가 입력되기 때문.
 
 
 

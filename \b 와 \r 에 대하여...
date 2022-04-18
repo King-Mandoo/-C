@@ -96,6 +96,103 @@ int main(void)
 
 
 
+🎈 \b 🎈 : 백 스페이스 (backspace)
+
+백 스페이스라고 하지만 우리가 평소 사용하는 그 백 스페이스와는 다르다.
+
+우리가 평소에 사용하는 backspace는 글자를 지움과 동시에 뒤로 움직이지만,
+
+\b는 커서만을 한칸 뒤로 움직인다.
+
+
+#include <stdio.h>
+
+int main(void)
+
+{
+
+	printf("abcdef\b");   -->  'abcde' 로 출력
+
+	return 0;
+
+}
+
+이 코드와 코드의 실행 결과만 봤을 때는 우리가 쓰는 백스페이스와 뭐가 다른지 짐작하기 어렵다.
+
+하지만 현재 abcdef에서 f는 지워진 것이 아니라, 그 위에 커서가 위치하고 있는 것이다.
+
+
+
+#include <stdio.h>
+
+int main(void)
+
+{
+
+	printf("abcdef\b\b");  -->  'abcd f' 로 출력
+
+	return 0;
+
+}
+
+이 코드의 실행결과는 'abcd f' 이다. 그 이유는 커서가 뒤로 두 번 이동했기 때문에
+
+커서가 'e'자리에 위치하고 있기 때문이다.
+
+
+
+
+#include <stdio.h>
+
+int main(void)
+
+{
+
+	printf("abc\bd\b\b \n");   
+	printf("fe\bh\b\b \n");  
+	return 0;
+
+}
+
+
+
+
+이 코드는 어떻게 출력 될까?
+
+🔎🔎 출력 결과:  a d
+                   h
+
+이 코드가 왜 이렇게 출력되는지는 위의 설명을 보면 충분히 유츄가 가능하다.
+
+하지만 조금 헷갈리는 부분은 공백부분이다. 그것만 주의하면 될 듯하다.
+
+
+
+
+
+#include <stdio.h>
+
+int main(void)
+
+{
+
+	printf("abc\bd\b\bf\n");   -->  'afd' 로 출력
+	printf("fe\bh\b\bc\n");  -->  'ch' 로 출력
+	return 0;
+
+}
+
+이 코드는 위의 코드의 공백 부분에 각각 f와 c를 넣어주었다.
+이걸 보면 더 이해가 확실히 될 것이다.
+
+
+
+
+
+
+
+
+ \r 과 \b는 인설트(insert) 모드를 잘 이해하고 있다면 충분히 잘 활용가능할 것이다.
 
 
 

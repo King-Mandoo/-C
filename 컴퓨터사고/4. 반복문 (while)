@@ -57,3 +57,53 @@ while num !=50:
     else:
         print("정답")
         
+        
+        
+# 4번
+
+from random import*
+
+play = 0
+print("주사위 프로그램을 시작합니다. 첫 번째 숫자는")
+
+while play != 'q':
+    print(randint(1,6))
+    play = input("아무 키나 누르면 주사위가 던져집니다. 종료를 원하시면 'q'를 입력")
+    
+
+
+# 5번
+
+dan = 0
+while dan != 1:
+    dan = int(input("(종료'1')구구단 몇 단을 출력할까요 : "))
+    i = 1
+    while i<=9:
+        print(dan * i)
+        i = i + 1
+
+
+
+# 6번
+
+number = 0
+while number != 1:
+    number = int(input("숫자 입력 (종료1) : "))
+    i = 0
+    hab = 0
+    while i <= number:
+        hab = hab + i
+        i = i + 1
+    print(hab)
+
+
+
+# 7번
+
+hp = 100
+while hp > 0:
+    dam = int(input("얼마의 데미지를 입히겠숑??:  "))
+    hp = hp - dam
+    print("주인공의 체력은 ",hp)
+    
+print("You Died")

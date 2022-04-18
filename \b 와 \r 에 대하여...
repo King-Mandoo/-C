@@ -1,0 +1,105 @@
+설명 출처:  https://youadokjon.tistory.com/1
+
+🎈 \r 🎈 --> 캐리지 리턴 (Carriage Return), 줄의 끝에서 시작 위치로 되돌아가는 제어문자
+
+\r :  10진수 -> 13
+      16진수 -> 0x0D
+        문자 -> CR
+
+\r (캐리지 리턴) 은 현재 줄(행)에서 첫 부분으로 이동하는 것이다.
+커서가 이동만 할 뿐이지 이전에 출력했던 문자들을 지우지는 않는다.
+
+
+
+#include <stdio.h>
+
+int main(void)
+
+{
+
+  printf("Berrrrrrrrrr\rHappy!");   -->  'Happy! rrrrr'로 출력
+
+}
+
+이 코드가  'Happy! rrrrr'로 출력되는 이유가 뭘까??
+
+그 이유는 Happy! rrrr 사이의 공백에 커서가 위치하기 때문이다.
+
+
+다른 예로,
+
+
+#include <stdio.h>
+
+int main(void)
+
+{
+
+	printf("aaaaa");     --> ' ddd '로 출력
+	printf("\r ddd");
+
+}
+
+이 코드가 ' ddda'로 출력되지 않고, ' ddd '출력되는 이유가 뭘까??
+같은 이유로 커서가 마지막 a위에 위치하기 때문이다.
+
+
+하지만!!
+
+
+#include <stdio.h>
+
+int main(void)
+
+{
+	printf("Berrrrrrrrrr\rHappy!\n");   -->  'Hapyy!rrrrrr' 로 출력
+}
+
+
+이 코드는 왜 'Hapyy!rrrrrr'로 출력이 될까??
+
+그건 바로 마지막의 \n 제어문자 때문이다.
+
+"Berrrrrrrrrr\rHappy!" 여기까지는 'Hapyy! rrrrr' 이처럼 현재 커서의 위치가 !와 r의 사이에 위치한다.
+
+하지만 \n이 "Berrrrrrrrrr\rHappy!\n" 등장함에 따라 커서의 위치가 아래로 이동하여
+(!와 r사이에 있던 커서가 아래로 이동하여)
+
+'Hapyy!rrrrrr' 로 출력되는 것이다.
+
+다른 예로,
+
+#include <stdio.h>
+
+int main(void)
+
+{
+
+	printf("aaaaa");        --> 'dddaa'로 출력
+	printf("\rddd\n");   
+
+	return 0;
+
+}
+
+이 코드 또한 마찬가지이다.
+
+  printf("aaaaa");     
+	printf("\rddd");    여기까지는 분명히 'ddd a'로 출력이 될 것이다.
+  
+  하지만
+
+  printf("aaaaa");        
+	printf("\rddd\n");   \n이 붙음으로써 커서가 아래로 이동하기 때문에
+                       'dddaa'로 출력이 되는 것이다.
+  
+
+
+
+
+
+
+
+
+
+

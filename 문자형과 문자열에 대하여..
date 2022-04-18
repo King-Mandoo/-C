@@ -41,4 +41,47 @@ int main(void)
 }
 
 
+이게 도대체 무슨 소리일까?
 
+'a' 'p' 'l' 'l' 'e'
+
+- 실제 변경은 정수로 변경
+
+65 
+
+
+#include <stdio.h>
+
+int main(void)
+
+{
+	int a = 1;
+	int int_arr[10] = { 0,1,2,3,4,5,6,7,8,9 };  // 40바이트의 메모리 공간을 가져옴 (int 하나당 4바이트)
+
+	printf("%d %d %d \n", int_arr[0], int_arr[1], int_arr[9]);
+
+	// print("%d", int_arr[20]);
+
+	char c = 'a';
+	char str1[10] = "Hello";
+	char str2[10] = { 'H', 'i' };
+
+	printf("%c\n", c);
+	printf("%s", str1);
+	printf("%s\n", str2);
+
+	char str3[20] = "Hello !\0World"; // ! 이후로는 출력이 안됨.
+	printf("%s\n", str3);
+	printf("%c\n", str3[8]); // 실제로는 저장이 되어있음
+	printf("%c\n", str3[9]);
+	printf("%c\n", str3[10]);
+	printf("%c\n", str3[11]);
+	printf("%c\n", str3[12]);
+}
+
+// ctrl + k + c  --> 한 줄 주석 적용
+// ctrl + k + u  --> 한 줄 주석 해제
+
+/*
+		문자열의 마지막에는 널문자 \0
+*/

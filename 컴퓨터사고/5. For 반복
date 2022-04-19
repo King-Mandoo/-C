@@ -1,0 +1,82 @@
+# for 문
+
+color = ["red", "green", "blue"]
+
+for i in color:
+    print(i)
+
+
+---------------------------
+
+color = ["red", len("red")]
+
+for i in color:
+    print(i)
+
+-----------------------------
+
+num = [1, 2, 3, 4, 5]
+
+for i in num:
+    print(i + 1)
+    
+
+#---------문제 풀이-----------------------
+
+# 1번.
+
+meal = ['아침', '점심', '저녁', '야식']
+
+date = 1
+
+while date != 0:
+    date = int(input("종료(0) 며칠이 지났습니까 : "))
+    for i in meal:
+        print(date * i)
+        
+        
+🔻🔻🔻 다른 답
+
+meal = ['아침', '점심', '저녁', '야식']
+
+date = 1
+
+i = 0
+
+while date > 0:
+    date = int(input("종료(0) 며칠이 지났습니까 : "))
+
+    i = date
+    while i > 0:
+        for j in meal:
+              print(j)
+        i = i - 1
+    
+
+
+
+# 2번.
+
+print("2020 제2회 한국사 시험 결과")
+
+score = [71, 70, 70, 70, 65, 40]
+
+for i in score:
+    if i >= 70:
+        print("A")
+    elif i >= 60:
+        print("B")
+    elif i < 60:
+        print("F")
+
+
+
+# 3번.
+
+n = ["토미", "마이크", "불독", "허호"]
+c = ["mt", "concert", "play", "go"]
+
+for i in n:
+    for j in c:
+        print(i,j)
+

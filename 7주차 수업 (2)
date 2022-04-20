@@ -473,3 +473,69 @@ int main()
 
 
 예제 19. 틀림❌   <-- 이건 진짜 터무니 없어서 못풀겠는데??????????????????????????????   내일 다시 풀어봐야지 2022. 04. 17
+
+예제 19. 애매함❗❓   <--  다시 풀어봄 2022. 04 .20.
+
+#include <stdio.h>
+
+int main()
+{
+	char num[100];
+	printf("숫자를 여러 개 입력 : ");
+	scanf("%s", num);
+
+	int x_num = 0;
+	int decimal_num = 0;
+         
+	while (x_num < 100)
+	{
+		decimal_num = num[x_num] - 48;   // num[]이 '9'라고하면, num[] - 48 은 10진수 9이다.
+
+		for (int j = 0; j < decimal_num; j++)
+		{
+			printf("*");
+		}
+
+		x_num++;
+		printf("\n");
+	}
+
+	return 0;
+}
+
+
+🔻고친 답🔻 <-- 이게 확실히 더 잘 작동하고 괜찮다. 이 방법이 훨씬 나아보인다.
+
+#include <stdio.h>
+
+int main()
+{
+	char num[100];
+	char num2;
+
+	printf("숫자를 여러 개 입력 : ");
+	scanf("%s", num);
+
+	int x_num = 0;
+	int decimal_num = 0;
+
+	num2 = num[x_num];
+         
+	while (num2 != '\0')
+	{
+		decimal_num = num2 - 48;   // num[]이 '9'라고하면, num[] - 48 은 10진수 9이다.
+
+		for (int j = 0; j < decimal_num; j++)
+		{
+			printf("*");
+		}
+
+		printf("\n");
+
+		x_num++;
+		num2 = num[x_num];
+	}
+
+	return 0;
+}
+

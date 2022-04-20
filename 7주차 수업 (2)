@@ -539,3 +539,37 @@ int main()
 	return 0;
 }
 
+----------------------------------------------------------------
+
+예제 19. 한번 다시 혼자 풀어봄.
+
+#include <stdio.h>
+
+int main()
+{
+	char str[100];
+	char k;
+
+	printf("숫자를 여러 개 입력: ");
+	scanf("%s", str);
+
+	int i = 0;
+	k = str[i];
+
+	while (k != '\0')
+	{
+		k = k - 48;
+
+		for (int j = 0; j < k; j++)
+		{
+			printf("*");
+		}
+		printf("\n");
+
+		i++;
+		k = str[i];
+	}
+		
+	return 0;
+}
+

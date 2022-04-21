@@ -80,3 +80,16 @@ for i in n:
     for j in c:
         print(i,j)
 
+----------------------------------
+
+
+# range 함수
+
+for a in range(6):   # range에 0부터 5까지 6숫자가 담겨져 있음.
+    print(a)
+
+for b in range(3,8): # 0 부터 7까지의 배열 안에서 3부터 7까지 출력
+    print (b)
+
+for c in range(3,8,2): # 0부터 7까지의 배열 안에서 3부터 7까지 2씩 띄어서 출력
+    print (c)

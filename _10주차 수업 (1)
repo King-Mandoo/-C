@@ -161,8 +161,8 @@ int main()
 	char str[100];
 	char tt[100];                <--- 이렇게 문자형 배열을 하나 더 추가해준다.
 
-	printf("문자열을 입력: ");
-	scanf("%s", str);
+	printf("문자열을 입력: ");         
+	scanf("%s", str);             <-- gets(str); 로 변경가능     심지어 이게 더 좋아보임 scanf는 spacebar를 누르면 작동이 돼서 약간 꼬롬함.
 
 	k = strlen(str);
 
@@ -172,7 +172,7 @@ int main()
 	}
 	tt[k] = '\0';
 
-	printf("%s", tt);
+	printf("%s", tt);      <-- puts(tt); 로 변경가능
 
 	return 0;
 }

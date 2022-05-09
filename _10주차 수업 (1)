@@ -204,9 +204,9 @@ int main()
 			alpha[k] -= 32;
 		}
 	}
-	alpha[i] = '\0';
-
-	printf("%s", alpha);
+	alpha[i] = '\0';               <-- ✅ Q. 왜 널 문자를 굳이 넣어주지 않아도 오류가 뜨지 않을까? 라고 생각했었다.
+                                              A. 그 이유는 애초에 문자형 배열 alpha에는 gets() 함수를 사용하여 널 문자가 입력 되어 있기 때문이다. 
+	printf("%s", alpha);                     따라서 207번 줄은 굳이 없어도 된다.
 
 	return 0;
 }
@@ -267,5 +267,36 @@ int main()
 	return 0;
 }
 
-예제 23.   
+예제 23.   맞음⭕
 
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+	char aa[100];
+	char s;
+	char new;
+	int i;
+
+	printf("여러 글자를 입력 : ");
+	gets(aa);
+
+	printf("기존 문자와 새로운 문자 : ");
+	scanf("%c %c", &s, &new);
+
+	i = strlen(aa);
+
+	for (int k = 0; k < i; k++)
+	{
+		if (aa[k] == s)
+		{
+			aa[k] = new;
+		}
+	}
+	aa[i] = '\0';            <-- ✅ 이것도 마찬가지다 굳이 널 문자를 넣어줄 필요가 없다.  문자형 배열 aa에 이미 널 문자가 들어가 있기 때문이다.
+
+	printf("%s", aa);
+
+	return 0;
+}

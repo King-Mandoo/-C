@@ -8,12 +8,34 @@ int main()
 	printf("Enter an integer (q to quit) : ");
 
 	while (scanf("%d", &num) == 1)                 <-- 이러한 방법으로 num의 입력 값이 정수형이면 1 이지만, 아니라면 0 이라는 것을 활용하여 코드를 짤 수 있다.
-	{
+	{                                                  1은 참, 0은 거짓
 		Sum = Sum + num;
 
 		printf("Enter next integer (q to quit) : ");
 	}
 	printf("Sum = %d", Sum);
+
+	return 0;
+}
+
+---------------------------------------------------------------------------
+
+#include <stdio.h>
+
+int main()
+{
+	int i = 1;
+	int k = 1;
+
+	while (++i < 2)               <-- i에 1이 더해진 뒤, '<' 가 인식되므로 조건식이 성립되지 않아 아래의 printf 함수가 실행되지 않는다.
+	{
+		printf("hi\n");
+	}
+
+	while (k++ < 2)               <-- '<' 가 인식된 후에 ++가 적용되므로 아래의 printf 함수가 한번 실행 된다.
+	{
+		printf("hi\n");
+	}
 
 	return 0;
 }

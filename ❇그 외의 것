@@ -39,3 +39,35 @@ int main()
 
 	return 0;
 }
+
+
+-------------------------------------------------------------------------------
+
+#include <stdio.h>
+
+int main()
+{
+	int i;
+
+	do
+	{
+		printf("Enter secret code : ");
+		scanf("%d", &i);
+	} while (i != 337);
+	printf("Good!");
+	
+--------------------------------------------------------------
+
+	//printf("Enter secret code : ");
+	//scanf("%d", &i);
+
+	//while (i != 337)
+	//{
+	//	printf("Enter secret code : ");
+	//	scanf("%d", &i);
+	//}
+	//printf("Good!");
+
+	return 0;
+}					// 같은 기능을 하는 코드가 여러번 반복하지 않도록 하기!
+

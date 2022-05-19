@@ -1,0 +1,39 @@
+#include<stdio.h>
+
+int main()
+{
+	int matrix1[10][10];
+	int col1, row1;
+
+	printf("Type the dimension of the first matrix: ");
+	scanf("%d %d", &col1, &row1);
+
+	for (int i = 0; i < col1; i++)
+	{
+		for (int j = 0; j < row1; j++)
+		{
+			if (i == 0)
+			{
+				printf("Type the 1st row: ");         <-- 이렇게 입력 받으면 1, 2 ,3 4 로 입력 할수가 없음 엔터키를 눌러야만 하기 때문이다
+				scanf("%d", &matrix1[i][j]);
+			}
+			else if (i == 1)
+			{
+				printf("Type the 2nd row: ");
+				scanf("%d", &matrix1[i][j]);
+			}
+			else if (i == 2)
+			{
+				printf("Type the 3rd row: ");
+				scanf("%d", &matrix1[i][j]);
+			}
+			else
+			{
+				printf("Type the %dth row: ", i + 1);
+				scanf("%d", &matrix1[i][j]);
+			}
+		}
+	}
+
+	return 0;
+}

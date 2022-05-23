@@ -87,4 +87,34 @@ int main(void)
 }
 
 
-예제 26.
+예제 26.   맞음⭕
+
+#include <stdio.h>
+
+int main()
+{
+	int s[10] = { 1,0,3,2,5,4,7,6,9,8 };
+	int tmp;
+	int* p;
+	p = s;
+
+	for (int i = 0; i < 10; i++)
+	{
+		for (int j = i + 1; j < 10; j++)
+		{
+			if (*(p + i) > *(p + j))
+			{
+				tmp = *(p + i);
+				*(p + i) = *(p + j);
+				*(p + j) = tmp;
+			}
+		}
+	}
+
+	for (int i = 0; i < 10; i++)
+	{
+		printf("%2d", *(p + i));
+	}
+
+	return 0;
+}

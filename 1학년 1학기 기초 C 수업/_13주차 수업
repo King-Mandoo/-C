@@ -27,3 +27,67 @@ int main()
 
 	return 0;
 }
+
+
+
+예제 28.  맞음⭕  
+
+#include<stdio.h>
+#include<string.h>
+
+void changer(char* p, int len)
+{
+	int a = 'a' - 'A';
+	
+	for (int i = 0; i < len; i++)
+	{
+		if (*(p + i) >= 'a' && *(p + i) <= 'z')
+		{
+			*(p + i) = *(p + i) - a;
+		}
+		else if (*(p + i) >= 'A' && *(p + i) <= 'Z')
+		{
+			*(p + i) = *(p + i) + a;
+		}
+
+		printf("%c", *(p + i));
+	}
+}
+
+int main()
+{
+	int len;
+	char aa[100];
+
+	printf("문자열을 입력<100자 이내> : ");
+	scanf("%s", aa);
+
+	printf("변환된 결과 ==> ");
+
+	len = strlen(aa);
+	changer(aa , len);
+
+	return 0;
+}
+
+ 🔻 다른 답🔻
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

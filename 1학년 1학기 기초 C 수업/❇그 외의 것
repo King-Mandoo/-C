@@ -116,3 +116,28 @@ int main()
 		A
 		A
 		-858993599
+
+-----------------------------------------------------------------------------------
+
+#include <stdio.h>
+
+void func1(int a)
+{
+	printf("%d", a);
+}
+
+int func2()
+{
+	printf("int 형 함수에서 돌려준 값 ==> ");
+
+	return 100;
+}
+
+int main()
+{
+	int a, b;
+
+	func1(func2());
+
+	return 0;
+}

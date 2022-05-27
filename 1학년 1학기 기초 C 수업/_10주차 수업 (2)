@@ -158,7 +158,7 @@ int main()
 	printf("%d\n", &aa[1]);
 	printf("%d\n", &aa[2]);
 	printf("%d\n", aa);             
-	printf("%d\n", aa + 1);    <-- &aa[1] 와 aa+1은 같은 값을 가진다.   // aa[x] 와 aa+x 는 동일한 주소이다.
+	printf("%d\n", aa + 1);    <-- &aa[1] 와 aa+1은 같은 값을 가진다.   // &aa[x] 와 aa+x 는 동일한 주소이다.
 	printf("%d\n", aa + 2);    <-- &aa[2] 와 aa+2는 같은 값을 가진다.
 
 	return 0;

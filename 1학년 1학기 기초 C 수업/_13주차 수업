@@ -183,10 +183,10 @@ int main()
 
 ---------------------------------------------
 
-      🔷 반환값이 없는 함수
-      
+   🔷 반환값이 없는 함수
+
         --> 함수를 실행할 결과를 돌려주는 것이 없는 경우에는 함수의 데이터형을 'void'로 쓴다.
-	
+
 #include <stdio.h>   
 
 void func2()
@@ -231,6 +231,140 @@ int main()
 
 	return 0;
 }
+
+🟠 매개변수 전달 방법
+
+   --> 매개변수를 전달할 때는 값으로 전달하는 (call by value) 방법과 주소로 전달하는 (call by reference) 방법이 있다. 
+
+  🔷 값으로 전달 (call by value)
+  
+     --> 함수에 매개변수를 전달할 때 숫자나 문자 그 자체를 전달한다.
+         그러면 받아들이는 함수는 그 값 자체를 받아들이는데, 원래 값을 전달한 곳에는 아무런 영향을 미치지 않는다.
+
+#include <stdio.h>
+
+void func1(int a)
+{
+	a = a + 1;
+	printf("전달받은 a ==> %d\n", a);
+}
+
+int main()
+{
+	int a = 10;
+
+	func1(a);
+	printf("func1() 실행 후의 a ==> %d\n", a);
+
+	return 0;
+}
+
+출력결과:
+	   전달받은 a ==> 11
+	   func1() 실행 후의 a ==> 10
+
+
+  🔷 주소(또는 참조)로 전달 (call by reference)
+
+
+#include <stdio.h>
+
+void func1(int *a)
+{
+	*a = *a + 5;
+	printf("전달받은 a ==> %d\n", *a);
+}
+
+int main()
+{
+	int a = 10;
+
+	func1(&a);
+	printf("func1() 실행 후의 a ==> %d\n", a);
+
+	return 0;
+}
+
+
+출력결과:
+	    전달받은 a ==> 15
+	    func1() 실행 후의 a ==> 15
+--------------------------------------------------
+
+#include <stdio.h>
+
+int func1(int *a,int *b)
+{
+	*a = *a + 5;
+	*b = *b + 10;
+	int sum = *a + *b;
+
+	printf("전달받은 a ==> %d\n", *a);
+	printf("전달받은 b ==> %d\n", *b);
+
+	return sum;
+}
+
+int main()
+{
+	int a = 10;
+	int b = 20;
+	int c;
+
+	c = func1(&a, &b);
+	printf("func1() 실행 후의 a ==> %d\n", a);
+	printf("func1() 실행 후의 b ==> %d\n", b);
+	printf("합: %d\n", c);
+
+	return 0;
+}
+
+출력결과: 
+		전달받은 a ==> 15
+		전달받은 b ==> 30
+		func1() 실행 후의 a ==> 15
+		func1() 실행 후의 b ==> 30
+		합: 45
+
+----------------------------------
+
+#include <stdio.h>
+
+void func1(char a, char b)
+{
+	int imsi;
+
+	imsi = a;
+	a = b;
+	b = imsi;
+}
+
+void func2(char* a, char* b)
+{
+	int imsi;
+
+	imsi = *a;
+	*a = *b;
+	*b = imsi;
+}
+
+void main()
+{
+	char x = 'A', y = 'Z';
+
+	printf("원래 값        : x = %c, y = %c\n", x, y);
+
+	func1(x, y);
+	printf("값을 전달한 후 : x = %c, y = %c\n", x, y);
+
+	func2(&x, &y);
+	printf("값을 전달한 후 : x = %c, y = %c\n", x, y);
+}
+
+출력결과: 
+		원래 값        : x = A, y = Z
+		값을 전달한 후 : x = A, y = Z
+		값을 전달한 후 : x = Z, y = A
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 📌예제 문제풀이📌

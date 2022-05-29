@@ -71,6 +71,47 @@ int main()
 }
 
 
+--------------------------------------------------------
+
+        ❗❗❗❗❗❗❗  재귀 호출과 스택!!!
+ 
+#include <stdio.h>
+                          
+void my_func(int);
+                                                       🎈🎈 함수는 종료되어 돌아갈 때 무조건 호출 되었던 그 위치로 돌아간다.
+int main()
+{
+	my_func(1); // my_func(1) 호출
+
+	return 0;
+}
+
+void my_func(int n)
+{
+	printf("Level %d, address of variable n = %d\n", n, (int)&n);
+
+	if (n < 4)
+		my_func(n + 1);  
+
+	printf("Level %d, address of variable n = %d\n", n, (int)&n);
+}
+
+// main() --> my_func(1) --> my_func(2) --> my_func(3) --> my_func(4) --> my_func(3) --> my_func(2) --> my_func(1) --> main()
+//               n = 1         n = 2           n = 3         n = 4          n = 3           n = 2         n = 1 
+//            아직 종료 X      아직 종료 X     아직 종료 X     종료 O          종료 O          종료 O        종료 O
+
+
+실행결과: 
+		Level 1, address of variable n = 171504992
+		Level 2, address of variable n = 171504736
+		Level 3, address of variable n = 171504480
+		Level 4, address of variable n = 171504224
+		Level 4, address of variable n = 171504224
+		Level 3, address of variable n = 171504480
+		Level 2, address of variable n = 171504736
+		Level 1, address of variable n = 171504992
+		
+---------------------------------------
 
 🟡 메모리와 주소
 

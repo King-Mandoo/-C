@@ -10,7 +10,7 @@ int return_function()
 	//else
 	//	printf("false\n");
 
-	return (a > b) ? printf("true\n") : printf("false\n");   <-- if문을 사용하는 것 보다 이렇게 condition 문(?)을 사용하는 것이 더 선호된다고 한다.
+	return (a > b) ? printf("true\n") : printf("false\n");   <-- if문을 사용하는 것 보다 이렇게 삼항연산자를 사용하는 것이 더 선호된다고 한다.
 
 }
 

@@ -141,3 +141,24 @@ int main()
 
 	return 0;
 }
+
+------------------------------------------------------------
+	
+#include <stdio.h>
+
+void helloString(char s1[10])    // 반환값 없음, char 포인터 매개변수 한 개 지정
+{
+    printf("%s\n", s1);
+    scanf("%s", s1);    // 문자열 s1에 값 저장
+}
+
+int main()
+{
+    char s1[10] = "world!";    // 배열 형태의 문자열
+
+    helloString(s1);    // 함수를 호출할 때 배열 전달
+
+    printf("바뀐 : %s", s1);
+  
+    return 0;
+}

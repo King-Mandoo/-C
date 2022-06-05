@@ -218,3 +218,92 @@ int main()
 	return 0;
 }
 
+
+
+    🔷 getchar()    🎈🎈(버퍼 사용 O) 
+    
+    
+#include <stdio.h>
+
+int main()
+{
+	char ch;
+
+	ch = getchar();     
+	putchar(ch);
+
+	ch = getchar();
+	putchar(ch);
+
+	ch = getchar();
+	putchar(ch);
+
+	return 0;
+}    
+    
+    🎈🎈 이 코드를 보면 첫 getchar() 함수를 통해 문자 하나를 입력해주고 Enter를 누르고 또 getchar() 함수에 문자 하나를 입력해주고 
+         이런 식으로 3번을 입력 받을거 같지만 그렇지 않다.
+	 
+	 A 입력 -->  Enter --> A 출력 --> B 입력 --> Enter --> B 출력 --> C 입력 --> Enter --> C 출력    이런 식으로 될거 같지만 그렇지 않다.
+	 
+	 A 입력 --> Enter --> A 출력 --> Enter 출력 --> B 입력 --> Enter --> B 출력 --> 종료    이렇게 된다. 
+	 
+	 그니까 A 그리고 Enter를 입력하면 
+	 입력 버퍼 안에 A와 Enter가 저장된다. ( putchar() 함수는 '\n'를 만나면 종료된다. )
+	 그럼 첫 번째 putchar(ch); 에서 'A'가 출력되고
+	 그다음 두 번째 getchar() 함수를 실행 시킬 때 입력 버퍼에 값이 남아 있으므로 ( Enter가 남아있다 )
+	 putchar(ch); 에서 Enter가 출력된다. 입력 버퍼에 이제 값이 남아있지 않으므로
+	 
+	 세 번째 getchar() 함수가 실행되고
+	 putchar(ch); 함수가 실행되고 '\n'를 만나 종료된다.
+	 
+	 
+	 
+	 
+	 만약 ABC를 입력하고 싶다면 처음 입력할 때 ABC를 입력해주면 된다.
+	 그럼 입력 버퍼에 ABC가 들어가고 
+	 A 출력 그다음 입력 버퍼에 BC가 남아있으므로
+	 B 출력 그다음 입력 버퍼에 C가 남아있으므로
+         C 출력 이렇게 된다.
+	 
+	 아래 또한 비슷한 내용이다.
+-----------------------------------
+
+#include <stdio.h>
+
+int main()
+{
+	char a;
+
+	while ((a = getchar()) != '\n')  // a = getchar() 에 () 을 안넣어주면 값이 이상하게 나옴
+		putchar(a);
+
+	return 0;
+}
+
+    
+  🎈🎈  getchar() 함수를 통해 a에 "hello"를 입력해보자.
+        getchar() 함수는 문자 하나를 입력해주는 함수다. putchar()은 문자 하나를 출력해주는 함수이다.
+    
+        그러면 어떻게 "hello"가 출력이 될까? 
+        
+        그건 바로 "hello"를 입력하면 입력버퍼에 "hello"가 채워지게 된다.
+        그럼 putchar() 함수를 통해 'h'가 출력된다.
+        그다음 다시 getchar() 함수로 돌아가지만 입력버퍼에 입력한 값이 남아 있으므로 함수를 실행시키지 않고
+        다시 아래의 putchar() 함수로 가서 'e'를 출력한다.
+        이와 같은 방식으로 나머지 'llo'도 출력한다. 마지막에 있는 '\n'도 출력되며 조건식에 의해 while문이 종료된다.
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

@@ -246,7 +246,7 @@ int main()
 	 
 	 A 입력 -->  Enter --> A 출력 --> B 입력 --> Enter --> B 출력 --> C 입력 --> Enter --> C 출력    이런 식으로 될거 같지만 그렇지 않다.
 	 
-	 A 입력 --> Enter --> A 출력 --> Enter 출력 --> B 입력 --> Enter --> B 출력 --> 종료    이렇게 된다. 
+	 A 입력 --> Enter 입력 --> A 출력 --> Enter 출력 --> B 입력 --> Enter 입력 --> B 출력 --> 종료    이렇게 된다. 
 	 
 	 그니까 A 그리고 Enter를 입력하면 
 	 입력 버퍼 안에 A와 Enter가 저장된다. ( putchar() 함수는 '\n'를 만나면 종료된다. )
@@ -266,7 +266,58 @@ int main()
 	 B 출력 그다음 입력 버퍼에 C가 남아있으므로
          C 출력 이렇게 된다.
 	 
-	 아래 또한 비슷한 내용이다.
+	 
+
+     🎈🎈 버퍼를 초기화 하는 법
+
+#include <stdio.h>
+
+int main()
+{
+	char ch;
+
+	ch = getchar();
+	putchar(ch);
+	putchar('\n');
+
+	while (getchar() != '\n') {}    <-- 이렇게 하면 버퍼를 초기화 시킬 수 있다.
+
+	ch = getchar();
+	putchar(ch);
+	putchar('\n');
+
+	while (getchar() != '\n') {}
+
+	ch = getchar();
+	putchar(ch);
+
+	return 0;
+}
+	 
+   ✅ 헷갈리는 것..!!
+   
+#include <stdio.h>
+
+int main()
+{
+	char ch;
+
+	ch = getchar();
+	putchar(ch);
+
+	putchar(ch);
+
+	putchar(ch);
+
+	return 0;
+}
+                                       그렇다면 여기에서 ABC 를 입력을 해준다면 ABC가 출력 돼야하는 것이 아닌가?????
+				       왜 AAA가 출력이 될까???
+				       
+				       그 이유는 더 이상 입력 버퍼를 호출하지 않았기 때문이다.
+				       
+				       좀 더 정확한 이유가 필요해.
+
 -----------------------------------
 
 #include <stdio.h>

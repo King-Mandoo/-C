@@ -197,6 +197,24 @@ int main()
            
 
     🔷 getche()    🎈🎈(버퍼 사용 X)    
-     
-         -->  
+      
+        --> getche() 함수는 putch() 함수를 사용하지 않아도 입력한 내용을 바로 모니터에 출력한다.
+	
+            getche()의 마지막 'e'는 'echo'를 의미한다.
+
+#include <stdio.h>
+
+int main()
+{
+	char ch;
+
+	ch = getche();
+	putch(ch);
+	ch = getche();
+	putch(ch);
+	ch = getche();
+	putch(ch);
+
+	return 0;
+}
 

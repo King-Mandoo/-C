@@ -203,3 +203,83 @@ int main()
 
 	return 0;
 }
+
+-----------------------------------------------------
+#include <stdio.h>
+
+void display(char cr, int lines, int width)
+{
+	for (int i = 0; i < lines; i++)
+	{
+		for (int j = 0; j < width; j++)
+		{
+			/*printf("%c", cr);*/
+			putchar(cr);
+		}
+		/*printf("\n");*/
+		putchar('\n');
+	}
+}
+
+int main()         // 결국 중요한건 scanf() 함수도 버퍼를 사용하기 때문에 '\n' 까지도 버퍼 안에 있다는 것을 알아야한다.
+{                // 그리고 버퍼를 초기화 하는 방법 또한 알고 있어야 한다.
+	char c;
+	int rows, cols;
+
+	while (1)
+	{
+		scanf("%c %d %d", &c, &rows, &cols);
+
+		while (getchar() != '\n') continue;    // 이렇게 버퍼를 초기화 한다.
+		 
+		display(c, rows, cols);
+		
+		if (c == '\n')
+			break;
+	}
+
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+#include <stdio.h>
+
+void display(char cr, int lines, int width)
+{
+	for (int i = 0; i < lines; i++)
+	{
+		for (int j = 0; j < width; j++)
+		{
+			/*printf("%c", cr);*/
+			putchar(cr);
+		}
+		/*printf("\n");*/
+		putchar('\n');
+	}
+}
+
+int main()         // 결국 중요한건 scanf() 함수도 버퍼를 사용하기 때문에 '\n' 까지도 버퍼 안에 있다는 것을 알아야한다.
+{                // 그리고 버퍼를 초기화 하는 방법 또한 알고 있어야 한다.
+	char c;
+	int rows, cols;
+
+	while ((c = getchar()) != '\n')     <-- 이 방법을 사용하면 enter 키를 눌렀을 때 바로 종료가 되도록 해줄 수 있음.
+	{
+		scanf("%d %d", &rows, &cols);
+
+		while (getchar() != '\n') continue;    // 이렇게 버퍼를 초기화 한다.
+		 
+		display(c, rows, cols);
+	}
+
+	return 0;
+}

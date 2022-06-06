@@ -152,3 +152,27 @@ int main()
 			break;
 	}
 }
+
+-------------------------------------------------
+	
+	#include <stdio.h>
+
+int main()
+{
+	int count = 0;
+	
+	while (1) {
+		printf("Current count is %d (Continue? Y / N) \n", count);
+
+		if (getchar() == 'N')
+			break;
+
+		while (getchar() != '\n')     // 버퍼를 
+			continue;
+
+		count++;
+
+	}
+
+	return 0;
+}

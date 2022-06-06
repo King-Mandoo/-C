@@ -176,3 +176,30 @@ int main()
 
 	return 0;
 }
+
+
+
+
+#include <stdio.h>
+
+int main()
+{
+	int count = 0;
+	
+	while (1) {
+		printf("Current count is %d (Continue? Y / N) \n", count);
+
+		int YorN = getchar();
+
+		if (YorN == 'N' || YorN == 'n')    // 이렇게 가능
+			break;
+
+		while (getchar() != '\n')
+			continue;
+
+		count++;
+
+	}
+
+	return 0;
+}

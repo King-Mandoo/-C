@@ -145,22 +145,22 @@ int main()
 
 int main() 			                int main()
 {					        {
-    char ss[100]; 			  	             char ss[100];
-    char tt[100];  				             char tt[100];
+    char ss[100]; 			  	    char ss[100];
+    char tt[100];  				    har tt[100];
     
     printf("ss input : ");    			    printf("ss input : "); 
-    scanf("%s", ss);  				          gets(ss);
+    scanf("%s", ss);  				    gets(ss);
 
-    printf("tt input : "); 			        printf("tt input : ");
-    gets(tt); 					                scanf("%s", tt);  
+    printf("tt input : "); 			    printf("tt input : ");
+    gets(tt); 					    scanf("%s", tt);  
 
-    printf("ss output : ");			        printf("ss output : ");
-    printf("%s", ss);				            printf("%s", ss);
+    printf("ss output : ");			    printf("ss output : ");
+    printf("%s", ss);				    printf("%s", ss);
 
     printf("tt output : ");   			    printf("tt output : ");
-    puts(tt);  					                puts(tt);
+    puts(tt);  					    puts(tt);
 
-    return 0;    				                return 0;	
+    return 0;    				    return 0;	
 }						 }	
 	
   A. 그건 바로 scanf() 와 gets()의 차이점에 있다. 

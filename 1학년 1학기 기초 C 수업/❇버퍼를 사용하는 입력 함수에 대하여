@@ -141,11 +141,11 @@ int main()
 ✅ Q. 두 코드의 차이는 무엇일까?
        왜 왼쪽 코드는 내 생각대로 되지 않을까?
 
-#include <stdio.h> 			            	#include <stdio.h>
+#include <stdio.h> 			        #include <stdio.h>
 
-int main() 					                int main()
-{						                        {
-    char ss[100]; 				             char ss[100];
+int main() 			                int main()
+{					        {
+    char ss[100]; 			  	             char ss[100];
     char tt[100];  				             char tt[100];
     
     printf("ss input : ");    			    printf("ss input : "); 
@@ -161,7 +161,7 @@ int main() 					                int main()
     puts(tt);  					                puts(tt);
 
     return 0;    				                return 0;	
-}						                          }	
+}						 }	
 	
   A. 그건 바로 scanf() 와 gets()의 차이점에 있다. 
      scanf()는 표준입력의 버퍼에서 공백문자(스페이스, 탭, '\n' 등)를 처음 만나도 이를 배열에 저장하지 않고

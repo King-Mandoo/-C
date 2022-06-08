@@ -188,3 +188,88 @@ int main()
 
 	return 0;
 }
+
+
+🟠 파일을 이용한 출력
+
+     🔷 파일의 문자열 출력: fputs()
+     
+#include <stdio.h>
+
+int main() 
+{
+	char s[20];
+	FILE* wfp;
+
+	wfp = fopen("file1.txt", "w");
+	gets(s);    <-- 배열 s에 문자열을 담는다.
+
+	fputs(s, wfp);  <-- 배열 s를 wfp 주소에 있는 파일에 복사한다.
+
+	fclose(wfp);
+
+	return 0;
+}
+
+     🔷 도스 명령어 copy의 구현
+     
+#include <stdio.h>
+
+int main() 
+{
+	char str[200];
+	FILE* rfp;
+	FILE* wfp;
+
+	rfp = fopen("C:\\windows\\win.ini", "r");
+	wfp = fopen("file1.txt", "w");
+
+	for (;;)
+	{
+		fgets(str, 200, rfp);
+
+		if (feof(rfp))
+			break;
+
+		fputs(str, wfp);
+	}
+
+	fclose(rfp);
+	fclose(wfp);                    🎈🎈  내가 헷갈린 건 "왜 콘솔창에 아무것도 뜨지않지?" 였다. 그런데 생각해보니
+                                              파일 출력 함수는 파일에 출력을 시키는 거지, 콘솔창에 출력 시키는 것이 아니었다.
+	return 0;
+} 
+
+      🔷 서식을 지정하여 파일 출력: fprintf()
+      
+       -->  fprintf(파일 포인터, "서식", 출력할 매개변수들..);
+	 
+	 
+#include <stdio.h>
+
+void main()
+{
+	int num;
+	int hap = 0;
+	FILE* wfp;
+
+	wfp = fopen("file1.txt", "w");
+
+	for (int i = 0; i < 5; i++)
+	{
+		printf("숫자%d: ", i + 1);
+		scanf("%d", &num);
+		hap = hap + num;
+	}
+
+	fprintf(wfp, "합계: %d", hap);
+
+	fclose(wfp);
+}	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 

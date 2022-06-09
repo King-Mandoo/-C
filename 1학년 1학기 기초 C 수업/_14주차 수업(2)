@@ -279,7 +279,6 @@ void main()
 int main()
 {
 	FILE* wfp;
-	char gugu[300];
 
 	wfp = fopen("file1.txt", "w");
 
@@ -297,10 +296,10 @@ int main()
 		}
 		fprintf(wfp, "\n");
 	}
- 
-	fclose(wfp);     <-- 파일을 안닫아줌.. 그래서 틀림 꼭 닫아주자.
+
+	fclose(wfp);    <-- 파일을 안닫아줘서 틀림.. 꼭 닫아주자..!
 
 	return 0;
-}	 
+} 
 	 
 	 

@@ -302,4 +302,47 @@ int main()
 	return 0;
 } 
 	 
-	 
+
+예제 31.  맞음⭕  하지만 이상한 점이 있음
+
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+	FILE* rfp;
+	FILE* wfp;
+	char aa[200];
+	char bb[200];
+	int change;
+
+	rfp = fopen("file1.txt", "r");
+	wfp = fopen("file2.txt", "w");
+
+	while (1)
+	{
+		//fgets(aa, 200, rfp);    <-- 왜 fgets() 함수는 줄을 자동으로 띄어주는 거지..? 이 함수를 쓰면 fprintf("\n")을 안해줘도 알아서 줄 바꿈이 된다.
+		fscanf(rfp, "%s", aa);
+
+		change = strlen(aa);
+
+		if (feof(rfp))
+			break;
+
+		for (int i = 0; i < change; i++)
+		{
+			bb[i] = aa[(change - 1) - i];
+	        
+		}
+		bb[change] = '\0';
+
+		fprintf(wfp, "%s\n", bb);
+		//fputs(bb, wfp);
+	}
+
+	fclose(rfp);
+	fclose(wfp);
+
+	return 0;
+}
+

@@ -321,7 +321,7 @@ int main()
 
 	while (1)
 	{
-		//fgets(aa, 200, rfp);    <-- 왜 fgets() 함수는 줄을 자동으로 띄어주는 거지..? 이 함수를 쓰면 fprintf("\n")을 안해줘도 알아서 줄 바꿈이 된다.
+		//fgets(aa, 200, rfp);    <-- ✅ Q. 왜 fgets() 함수는 줄을 자동으로 띄어주는 거지..? 이 함수를 쓰면 fprintf("\n")을 안해줘도 알아서 줄 바꿈이 된다.
 		fscanf(rfp, "%s", aa);
 
 		change = strlen(aa);
@@ -345,4 +345,4 @@ int main()
 
 	return 0;
 }
-
+                                 ✅ A. fgets() 함수는 '\n'까지 읽어오기 때문이다.   근데 file2에서 왜 맨 위에도 공백이 생기는 걸까..??

@@ -205,3 +205,34 @@ void print_nums(int* lotto_nums)
 	for (int i = 0; i < 6; i++)
 		printf("%3d", *(lotto_nums + i));
 }
+
+---------------------------------------------------------------
+#include <stdio.h>
+
+int main(void)
+{
+	char ch;
+	int count = 0;
+	int count2 = 0, num = 0;
+
+	while ((ch = getchar()) != EOF)
+	{
+		if (ch == '\n')
+		{
+			if (count > count2)
+				num = count;
+			else
+				num = count2;
+
+			count2 = count;
+			
+			count = 0;
+		}
+		else
+			count++;
+	}
+
+	printf("가장 긴 단어의 길이: %d", num);
+
+	return 0;
+}

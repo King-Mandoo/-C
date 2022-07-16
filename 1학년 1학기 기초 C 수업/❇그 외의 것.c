@@ -262,7 +262,7 @@ int main()
 		count = 1;
 	}
 
-	printf("%d", num);
+	printf("가장 긴 단어의 길이: %d", num);
 	return 0;
 }
 

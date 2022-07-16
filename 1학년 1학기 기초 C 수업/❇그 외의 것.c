@@ -236,3 +236,33 @@ int main(void)
 
 	return 0;
 }
+
+---
+	
+#include <stdio.h>
+
+int main()
+{
+	char ch;
+	int count = 1;
+	int num = 0;
+
+	while (ch = getchar() != EOF)
+	{
+		while (ch = getchar() != '\n')
+		{
+			count++;
+		}
+
+		if (num < count)
+		{
+			num = count;
+		}
+
+		count = 1;
+	}
+
+	printf("%d", num);
+	return 0;
+}
+

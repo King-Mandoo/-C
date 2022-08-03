@@ -43,7 +43,78 @@ int main()
 }
 
 
+------------------------------------------------------------------
+	
+	* 함수 포인터를 활용한 계산기 프로그램
 
+#include <stdio.h>
+
+int plus(int a, int b);
+int minus(int a, int b);
+int pro(int a, int b);
+int div(int a, int b);
+int rem(int a, int b);
+
+int main()
+{
+	int a = 5, b = 3;
+	char op;
+	int (*func_cal)(int , int);
+
+	printf("+ - * / %%  골라유: ");
+	scanf("%c", &op);
+
+	switch (op)
+	{
+	case '+':
+		func_cal = plus; 
+		printf("%d", func_cal(a, b));
+		break;
+	case '-':
+		func_cal = minus; 
+		printf("%d", func_cal(a, b));
+		break;
+	case '*':
+		func_cal = pro;
+		printf("%d", func_cal(a, b));
+		break;
+	case '/':
+		func_cal = div; 
+		printf("%d", func_cal(a, b));
+		break;
+	case '%':
+		func_cal = rem; 
+		printf("%d", func_cal(a, b));
+		break;
+	}
+
+	return 0;
+}
+
+int plus(int a, int b)
+{
+	return a + b;
+}
+
+int minus(int a, int b)
+{
+	return a - b;
+}
+
+int pro(int a, int b)
+{
+	return a * b;
+}
+
+int div(int a, int b)
+{
+	return a / b;
+}
+
+int rem(int a, int b)
+{
+	return a % b;
+}
 
 
 

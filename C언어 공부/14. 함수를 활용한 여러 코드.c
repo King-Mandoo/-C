@@ -69,3 +69,46 @@ void roop(int* N, int* i, int* count)
 	if (*i <= *count)
 		roop(N, i, count);
 }
+
+------------------------------------------------
+   *에라토스테네스의 체
+ 
+#include <stdio.h>
+
+void Eratosthenes_algorithm(int a[]);
+
+int main()
+{
+	int prime_num[1000];
+
+	Eratosthenes_algorithm(prime_num);
+
+	return 0;
+}
+
+void Eratosthenes_algorithm(int a[])
+{
+	int count = 0;
+
+	for (int i = 2; i <= 100; i++)
+		a[i] = i;
+
+	for (int i = 2; i <= 100; i++)
+	{
+		count = 0;
+		for (int j = 1; j <= a[i]; j++)
+		{
+			if (a[i] % j == 0)
+			{
+				count++;
+				continue;
+			}
+			if (count > 2)
+			{
+				break;
+			}
+		}
+		if(count == 2)
+			printf("%d ", a[i]);
+	}
+}

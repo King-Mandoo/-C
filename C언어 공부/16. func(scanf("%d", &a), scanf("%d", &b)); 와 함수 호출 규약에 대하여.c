@@ -1,3 +1,4 @@
+---------------------------------
 #include <stdio.h>
 
 int func(int a, int b)
@@ -13,6 +14,8 @@ int main()
 	printf("%d %d %d\n", a, b, sum);   // 3 5 2 출력
  
 }
+
+---------------------------------
 
        여기서 내가 발견한 이상한 점이 두 가지가 있다.
          
@@ -41,5 +44,12 @@ int main()
           printf()에서는 3 5 순서로 출력이 된다는 것이다.
          
           이 말은 즉슨 인자 전달의 순서가 오른쪽 --> 왼쪽으로 진행된다는 것이다.
+		  
+          여기서 알아야 하는 것이 바로 함수 호출 규약(Calling Convention)이다. 
+
+		  
+         * 함수 호출 규약에 대한 설명이 있는 블로그 : https://blog.kimtae.xyz/7 
+                                                 : https://blog.naver.com/PostView.naver?blogId=tjdghkgkdl&logNo=10117639381
+
          
       

@@ -231,7 +231,45 @@ int add(int* p)
 	return ++*p;
 }
 
+---------------------------------------------------------
+* 실험 5.
+	
+#include <stdio.h>
+#include <string.h>
 
+void information(struct Test* growing);
+
+struct Test
+{
+	int age;
+	double tall;
+	char name[30];
+};
+
+int main()
+{
+	struct Test itsMe;
+
+	itsMe.age = 3;
+	itsMe.tall = 50.52;
+	strcpy(itsMe.name, "어린 선태욱");
+
+	printf("나이 : %d\n키 : %.2lf\n이름 : %s\n", itsMe.age, itsMe.tall, itsMe.name);
+
+	information(&itsMe);
+	printf("\n그렇게 20년 후..\n\n");
+
+	printf("나이 : %d\n키 : %.1lf\n이름 : %s\n", itsMe.age, itsMe.tall, itsMe.name);
+
+	return 0;
+}
+
+void information(struct Test* growing)
+{
+	growing->age = 23;
+	growing->tall = 171.3;
+	strcpy(growing->name, "성인 선태욱");
+}
 
 
 

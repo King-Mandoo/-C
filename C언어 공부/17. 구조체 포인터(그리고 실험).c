@@ -82,7 +82,8 @@ int main()
 }
 
 ------------------------------------------------------------------------
-	
+* 실험 1.
+
 #include <stdio.h>
 
 struct test1
@@ -109,6 +110,7 @@ int main()
 
 
 ------------------------------------------------------------------------
+* 실험 2.
 	
 #include <stdio.h>
 
@@ -148,6 +150,90 @@ int main()
 	return 0;
 }
 
+------------------------------------------------
+* 실험 3.
 	
+#include <stdio.h>
 
- 
+struct test
+{
+	int a;
+	int b;
+	int* p;
+};
+
+int main()
+{
+	struct test t1;
+	int i = 100;
+
+	t1.a = 500;
+	t1.b = 400;
+	t1.p = &i;
+	*t1.p = 5;
+
+	printf("%d %d %d\n", t1.a, t1.b, *t1.p);
+
+
+
+
+	struct test* tp;
+	tp = &t1;
+
+	tp->a = 5;  //(*tp).a = 5;
+	tp->b = 3;
+	//*tp->p = i; // *(*tp).p = i;   이러면 안되지 *p에는 우선적으로 값을 참조하는 주소 값이 들어가야하는 데 값 부터 넣어버리면 당연히 안되지
+	tp->p = &i;
+
+	printf("%d\n", t1.a);
+	printf("%d\n", t1.b);
+	printf("%d\n", *t1.p);
+	printf("%d\n", (*tp).a);
+	printf("%d\n", (*tp).b);
+	printf("%d\n", *(*tp).p);
+
+	return 0;
+}
+
+ -------------------------------------------------
+* 실험 4.
+	 
+#include <stdio.h>
+
+int add(int* p);
+
+struct test
+{
+	int a;
+};
+
+int main()
+{
+	struct test t;
+	struct test* tp;
+
+	t.a = 100;
+
+	printf("%d\n", add(&t.a));
+
+	tp = &t;
+
+	//tp->a = 5; //(*tp).a = 5;       tp.a == &t.a 가 아닌가??
+
+	printf("%d\n", add(&tp->a));  // 왜 tp.a 는 안되고, &(*tp).a는 될까 (혹은 &tp->a)
+
+	return 0;
+}
+
+int add(int* p)
+{
+	return ++*p;
+}
+
+
+
+
+
+
+
+

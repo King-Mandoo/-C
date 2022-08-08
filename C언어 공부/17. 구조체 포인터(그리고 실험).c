@@ -81,6 +81,32 @@ int main()
 	return 0;
 }
 
+------------------------------------------------------------------------
+	
+#include <stdio.h>
+
+struct test1
+{
+	int a, b;
+};
+
+int letsdoit(struct test1* pt)
+{
+	pt->a = 50;
+	pt->b = 33;
+	return (*pt).a + (*pt).b;
+}
+
+int main()
+{
+	struct test1 t1;
+
+	printf("%d", letsdoit(&t1));
+	return 0;
+}
+
+
+
 
 ------------------------------------------------------------------------
 	

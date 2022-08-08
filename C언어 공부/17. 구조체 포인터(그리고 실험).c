@@ -82,4 +82,46 @@ int main()
 }
 
 
+------------------------------------------------------------------------
+	
+#include <stdio.h>
+
+struct test1
+{
+	int a, b;
+
+	struct test2
+	{
+		int c, d;
+	};
+};
+
+
+int main()
+{
+	struct test1 t1;
+	struct test2 t2;
+
+	t1.a = 5;
+	t1.b = 2;
+	t1.c = 3;
+	t1.d = 4;
+
+	//t2.a = 5;      당연히 
+	//t2.b = 2;
+	t2.c = 50;
+	t2.d = 30;
+
+	printf("%d\n", t1.a);
+	printf("%d\n", t1.b);
+	printf("%d\n", t1.c);
+	printf("%d\n", t1.d);
+	printf("%d\n", t2.c);
+	printf("%d\n", t2.d);
+
+	return 0;
+}
+
+	
+
  

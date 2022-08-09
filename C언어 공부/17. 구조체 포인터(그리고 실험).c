@@ -272,36 +272,6 @@ void information(struct Test* growing)
 }
 
 ----------------------------------------------------------------------
-* 실험 6.
-	
-#include <stdio.h>
-
-struct employee
-{
-	int age;
-	int salary;
-};
-
-struct company
-{
-	struct employee data;
-	char name[30];
-};
-
-int main()
-{
-	struct company person1;
-
-	person1.data.age = 35;
-	person1.data.salary = 300000000;
-	strcpy(person1.name, "선태욱");
-
-	printf("%d\n", person1.data.age);
-	printf("%d$\n", person1.data.salary);
-	printf("%s\n", person1.name);
-
-	return 0;
-}
 
 
 

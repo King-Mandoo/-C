@@ -81,7 +81,7 @@ int main()
 	return 0;
 }
 
-------------------------------------------------------------------------
+-------------------------------------실-------(검증된)-------험-----------------------------------
 * 실험 1.
 
 #include <stdio.h>
@@ -271,7 +271,37 @@ void information(struct Test* growing)
 	strcpy(growing->name, "성인 선태욱");
 }
 
+----------------------------------------------------------------------
+* 실험 6.
+	
+#include <stdio.h>
 
+struct employee
+{
+	int age;
+	int salary;
+};
+
+struct company
+{
+	struct employee data;
+	char name[30];
+};
+
+int main()
+{
+	struct company person1;
+
+	person1.data.age = 35;
+	person1.data.salary = 300000000;
+	strcpy(person1.name, "선태욱");
+
+	printf("%d\n", person1.data.age);
+	printf("%d$\n", person1.data.salary);
+	printf("%s\n", person1.name);
+
+	return 0;
+}
 
 
 

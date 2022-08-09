@@ -1,5 +1,7 @@
 출처: https://dojang.io/mod/page/view.php?id=454
 
+      *union : 결합, 동맹
+
 -------------------------------------------------------------------------------
 #include <stdio.h>
 #include <string.h>    // strcpy 함수가 선언된 헤더 파일

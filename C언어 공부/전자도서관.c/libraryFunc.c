@@ -1,10 +1,6 @@
-struct library
-{
-	char bookName[30];
-	char author[30];
-	char publish[30];
-	int borrowed;
-};
+#include <stdio.h>
+#include <string.h>
+#include "libraryFunc.h"
 
 void book_register(struct library* regiBook, int* bookNum)  // Ã¥ µî·Ï
 {

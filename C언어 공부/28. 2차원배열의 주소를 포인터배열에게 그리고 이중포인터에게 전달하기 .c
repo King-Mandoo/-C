@@ -30,7 +30,7 @@ void function(int** a, int m, int n)     <-- ✅ Q. 여기서 들을 수 있는 
 		printf("\n");
 	}
 }
-
+ 
  
                                   ✅ A. 네, 안돼요
                                         

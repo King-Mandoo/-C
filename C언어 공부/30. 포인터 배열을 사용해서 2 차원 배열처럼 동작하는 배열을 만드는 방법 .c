@@ -62,3 +62,56 @@ int main()
 	    2 3 4 5
 		    
 		    
+--------------------------------------------------------
+		    
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	int** test;
+	int subjects;
+	int students;
+
+	printf("과목의 수 : ");
+	scanf("%d", &subjects);
+	printf("학생 수 : ");
+	scanf("%d", &students);
+
+	test = (int**)malloc(sizeof(int*) * subjects);
+
+	for (int i = 0; i < subjects; i++)
+	{
+		test[i] = (int*)malloc(sizeof(int) * students);
+	}
+
+	for (int i = 0; i < subjects; i++)
+	{
+		for (int j = 0; j < students; j++)
+		{
+			printf("%d 번째 과목에 대한 %d번 학생의 점수: ", i + 1, j + 1);
+			scanf("%d", &test[i][j]);
+		}
+		printf("------------------------------------------\n");
+	}
+
+	int sum = 0;
+
+	for (int i = 0; i < students; i++)
+	{
+		sum = 0;
+
+		for (int j = 0; j < subjects; j++)
+		{
+			sum += test[j][i];
+		}
+		printf("%d 번쨰 학생의 평균 : %d\n", i + 1, sum / subjects);
+	}
+
+	for (int i = 0; i < subjects; i++)
+		free(test[i]);
+	
+	free(test);
+
+	return 0;
+}

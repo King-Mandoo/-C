@@ -66,7 +66,7 @@ struct test
 int main()
 {
 	struct test st;
-	struct test* ptr;   // struct test 는 int와 같은 자료형이라고 생각하면 된다. (ㄹㅇ이렇게 생각하면 쉽다)
+	struct test* ptr;   // struct test 는 int,double,char과 같은 자료형이라고 생각하면 된다. (ㄹㅇ이렇게 생각하면 쉽다)
 
 	ptr = &st;
 

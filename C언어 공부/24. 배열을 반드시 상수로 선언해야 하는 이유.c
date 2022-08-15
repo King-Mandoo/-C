@@ -6,7 +6,7 @@
 int main()
 {
 	int i = 5;
-	int aa[a];
+	int aa[i];
 
 	return 0;
 }

@@ -9,7 +9,6 @@ struct movieItems
 
 struct movieItems Movies[100]; // Movies[0].name : Sector 7, Movies[0].rate : 4.6
 int itemsCount; // 텍스트 파일에 입력되어 있는 영화의 수
-int index = 0; // 영화 순서 인덱스
 
 void PrintAllItems(); // 모든 영화를 출력해주는 함수
 void PrintAnItem(); // 영화 하나 골라서 출력
@@ -44,6 +43,7 @@ int main()
 
 	// 영화 입력----------------------- Movies[0].name : Sector 7, Movies[0].rate : 4.6 ...
 	char str[100];
+	int index = 0; // 영화 순서 인덱스
 	for (int i = 0; i < itemsCount; i++)
 	{
 		fgets(str, 100, moviefp);
@@ -103,6 +103,10 @@ int main()
 		{
 			DeleteAllItem();
 		}
+		else if (choice == 8)
+		{
+			SaveFile();
+		}
 		else if (choice == 9)
 		{
 			SearchByName();
@@ -157,7 +161,7 @@ void EditAnItem()
 void AddAnItem()
 {
 	itemsCount++;  // 총 영화 개수 증가
-	
+
 	printf("Input title and press enter.\n>> ");
 	scanf("%s", &Movies[itemsCount - 1].name);
 	printf("Input rating and press enter.\n>> ");
@@ -168,11 +172,11 @@ void AddAnItem()
 
 void InsertAnItem()
 {
-	itemsCount++;  
+	itemsCount++;
 	int index;
 
 	printf("Input the idex of item to insert.\n>> ");
-	scanf("%d", &index); 
+	scanf("%d", &index);
 
 
 	for (int i = itemsCount - 2; i >= index; i--)
@@ -193,7 +197,7 @@ void DeleteAnItem()
 {
 	int index = 0;
 
-	if (itemsCount > 1)
+	if (itemsCount > 0)
 	{
 		itemsCount--;
 
@@ -206,10 +210,11 @@ void DeleteAnItem()
 			Movies[i - 1].rate = Movies[i].rate;
 		}
 	}
-	else   // 최소 한개의 영화는 남겨두도록 코딩
+	else  
 	{
-		printf("%d : \"%s\", %.1lf\n", index, Movies[index].name, Movies[index].rate);
-		printf("We need at least one movie.\n\n");
+		/*printf("%d : \"%s\", %.1lf\n", index, Movies[index].name, Movies[index].rate);
+		printf("We need at least one movie.\n\n");*/
+		printf("There's no movie\n\n");
 	}
 }
 
@@ -220,10 +225,33 @@ void DeleteAllItem()
 
 void SaveFile()
 {
+	char title[100];
+	FILE* fp = NULL;
 
+	printf("Please input file name to write and press Enter.\n>> ");
+	scanf("%s", title);
+	fp = (title, "w");
+
+	if (fp == NULL)
+	{
+		fprintf(stderr, "We can not open this file.\n\n");
+		exit(1);
+	}
+
+	char moviesCount = itemsCount + '0';
+
+	fputc(moviesCount, fp);
+
+	for (int i = 0; i < itemsCount; i++)
+	{
+		fputs(Movies[i].name, fp);
+		fprintf(fp, "%lf", Movies[i].rate);
+	}
+	
+	fclose(fp);
 }
 
-void SearchByName()   
+void SearchByName()
 {
 	int i, check = -5;
 	char aa[100];
@@ -234,7 +262,7 @@ void SearchByName()
 
 	fgets(aa, 100, stdin);
 	aa[strlen(aa) - 1] = NULL;  // 문자열 마지막 개행문자 제거
-	
+
 	for (i = 0; i < itemsCount; i++)
 	{
 		if (strcmp(aa, Movies[i].name) == 0)

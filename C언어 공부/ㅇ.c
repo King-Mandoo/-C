@@ -212,8 +212,6 @@ void DeleteAnItem()
 	}
 	else  
 	{
-		/*printf("%d : \"%s\", %.1lf\n", index, Movies[index].name, Movies[index].rate);
-		printf("We need at least one movie.\n\n");*/
 		printf("There's no movie\n\n");
 	}
 }
@@ -225,13 +223,13 @@ void DeleteAllItem()
 
 void SaveFile()
 {
-	char title[100];
 	FILE* fp = NULL;
 
+	char title[100];
 	printf("Please input file name to write and press Enter.\n>> ");
 	scanf("%s", title);
-	fp = (title, "w");
 
+	fp = fopen(title, "w");
 	if (fp == NULL)
 	{
 		fprintf(stderr, "We can not open this file.\n\n");
@@ -244,8 +242,9 @@ void SaveFile()
 
 	for (int i = 0; i < itemsCount; i++)
 	{
+		fprintf(fp, "\n");
 		fputs(Movies[i].name, fp);
-		fprintf(fp, "%lf", Movies[i].rate);
+		fprintf(fp, "\n%lf", Movies[i].rate);
 	}
 	
 	fclose(fp);

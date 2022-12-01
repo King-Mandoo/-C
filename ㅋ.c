@@ -121,7 +121,7 @@ https://www.tutorialspoint.com/data_structures_algorithms/merge_sort_algorithm.h
 #include <stdio.h>
 
 int number = 8;
-int sorted[8];  // 배열 sorted는 정렬하기 위해 만들어놓는 배열
+int sorted[8];  // 배열 sorted는 정렬하기 위해 만들어놓는 임시배열
 
 void merge(int a[], int m, int middle, int n)
 {

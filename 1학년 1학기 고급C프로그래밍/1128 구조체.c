@@ -1,6 +1,11 @@
 #include <stdio.h>
 #include <string.h>
 
+int equal(struct student, struct student);
+int equal2(struct student* a, struct student* b);
+int equal3(struct student const* a, struct student const* b);
+struct student createStudent();
+
 struct student {
 	char name[30];  // 30 + 4 + 16
 	int age;
@@ -12,6 +17,10 @@ struct class {
 	struct student stu;
 	int classNumber;
 	int studentCount;
+};
+
+struct pointer {
+	int* p;
 };
 
 int main()
@@ -81,6 +90,90 @@ int main()
 		printf("%.1lf\n", student_list[i].weight);
 		printf("%.1lf\n\n", student_list[i].height);
 	}
-	
+
+	// 포인트를 멤버로 가지는 구조체
+	struct pointer a;
+	a.p = &classA.age;
+	*a.p = 35;
+
+	printf("%d\n", *a.p);
+	printf("%d\n\n", classA.age);
+
+	// 구조체를 가리키는 포인터
+	struct student* s;
+	s = &classA;
+
+	printf("%s\n", s->name);
+	printf("%s\n", (*s).name);
+
+	printf("%d\n", s->age);
+	printf("%d\n", (*s).age);
+
+	printf("%.1lf\n", s->height);
+	printf("%.1lf\n", (*s).height);
+
+	printf("%.1lf\n", s->weight);
+	printf("%.1lf\n\n", (*s).weight);
+
+	// 구조체를 함수의 인수로 넘기는 방법
+	struct student n = {"선태욱", 23, 68.3, 171.3};
+	struct student m = { "이말년", 41, 70, 179.9 };
+
+	// 값 형식으로 전달
+	if (equal(n, m))
+		printf("같은 나이\n");
+	else
+		printf("다른 나이\n");
+
+	// 참조 형식으로 전달
+	if (equal2(&n, &m))
+		printf("같은 나이\n");
+	else
+		printf("다른 나이\n");
+
+	// 참조 형식 하지만 상수형이므로 equal3 함수 내에서 값 변경 불가
+	if (equal3(&n, &m))
+		printf("같은 나이\n");
+	else
+		printf("다른 나이\n\n");
+
+	// 구조체를 함수의 반환값으로 넘기기
+	struct student make = createStudent();
+	printf("%s\n", make.name);
+	printf("%d\n", make.age);
+	printf("%lf\n", make.height);
+	printf("%lf\n\n", make.weight);
+
 	return 0;
+}
+
+int equal(struct student a, struct student b)
+{
+	if (a.age == b.age)
+		return 1;
+	else
+		return 0;
+}
+
+int equal2(struct student* a, struct student* b)
+{
+	if (a -> age == b -> age)
+		return 1;
+	else
+		return 0;
+}
+
+int equal3(struct student const* a, struct student const* b)
+{
+	if (a -> age == b -> age)
+		return 1;
+	else
+		return 0;
+}
+
+struct student createStudent()
+{
+	struct student a = { "하이용", 13, 53.3, 164.4 };
+
+	return a;
 }

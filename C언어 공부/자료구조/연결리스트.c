@@ -106,12 +106,12 @@ int main()
 		printf("Wrong title\n");
 		return;
 	}
-	if (prev == NULL)                // Node1 -> Node2 -> Node3 이렇게 되어있는 구조에서
+	if (prev == NULL)                      // Node1 -> Node2 -> Node3 이렇게 되어있는 구조에서
 		head = search->next;           // Node2를 삭제하고 싶다면, prev는 Node1을 가리키고
-	else                             // search는 Node2를 가리키게 한다.
+	else                                   // search는 Node2를 가리키게 한다.
 		prev->next = search->next;     // 그리고 prev가 NULL이 아니므로(선언 했을 당시는 NULL)
-	free(search);                    // prev->next에 search->next(Node2->next)를 넣어줌으로써
-									                 // Node3를 연결해준다. 그리고 search(Node2) 동적 메모리 해제
+	free(search);                          // prev->next에 search->next(Node2->next)를 넣어줌으로써
+			                       // Node3를 연결해준다. 그리고 search(Node2) 동적 메모리 해제
 
 	print_all(head);
 }                                    

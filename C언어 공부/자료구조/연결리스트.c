@@ -115,3 +115,112 @@ int main()
 
 	print_all(head);
 }                                    
+
+
+--------------------------------------------------------------------------
+	
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+struct Node
+{
+	char title[100];
+	float rating;
+	struct Node* Next;
+};
+
+void print_all(struct Node* head)
+{
+	struct Node* search = head;
+	while (search != NULL)
+	{
+		printf("title: %s, rating: %f, ", search->title, search->rating);
+		printf("Next Pointer: %zd\n", (size_t)search->Next);
+		search = search->Next;
+	}
+	printf("---------------------------------\n");
+	return;
+}
+
+typedef struct Node* NodePtr;
+
+int main()
+{
+	NodePtr head = NULL;
+
+	/* First Node */
+	NodePtr node1 = malloc(sizeof(struct Node));
+	if (node1 == NULL)
+	{
+		printf("ERROR: malloc failed.");
+		exit(1);
+	}
+	strcpy(node1->title, "Avater");
+	node1->rating = 10.0f;
+	node1->Next = NULL;
+
+	if (head == NULL)
+		head = node1;
+
+	print_all(head);
+
+	/* Second Node */
+	NodePtr node2 = malloc(sizeof(struct Node));
+	if (node2 == NULL)
+	{
+		printf("ERROR: malloc failed.");
+		exit(1);
+	}
+	strcpy(node2->title, "Harry Potter");
+	node2->rating = 9.4f;
+	node2->Next = NULL; 
+
+	/* Linked node1 and node2 */
+	node1->Next = node2;
+	print_all(head);
+
+	/* Third Node */
+	NodePtr node3 = malloc(sizeof(struct Node));
+	if (node3 == NULL)
+	{
+		printf("ERROR: malloc failed.");
+		exit(1);
+	}
+	strcpy(node3->title, "범죄도시");
+	node3->rating = 8.5f;
+	node3->Next = NULL;
+
+	/* Make third Node is head node */
+	head = node3;
+	node3->Next = node1;
+	print_all(head);
+
+	/* Fourth Node */
+	NodePtr node4 = malloc(sizeof(struct Node));
+	if (node4 == NULL)
+	{
+		printf("ERROR: malloc failed");
+		exit(1);
+	}
+	strcpy(node4->title, "극한직업");
+	node4->rating = 7.5f;
+	node4->Next = NULL;
+
+	/* locate node4 in between node1 and node2 */
+	node3->Next = node4;
+	node4->Next = node1;
+	print_all(head);
+
+	/* delete Avatar(node1) */
+	node4->Next = node2;
+	print_all(head);
+
+	/* make node2(Harry Poter) is head node*/
+	head = node2;
+	node2->Next = node3;
+	node4->Next = NULL;
+	print_all(head);
+
+	return 0;
+}
